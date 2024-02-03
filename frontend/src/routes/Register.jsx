@@ -8,6 +8,7 @@ const Register = () => {
         handleSubmit,
         watch,
         formState: { errors },
+        trigger,
     } = useForm();
 
     const Submit = () => {};
@@ -46,6 +47,7 @@ const Register = () => {
                                 message: "the name should not be numeric",
                             },
                         })}
+                        onBlur={() => trigger("nom")}
                         className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                     />
                     {errors.nom && (
@@ -75,6 +77,7 @@ const Register = () => {
                                 message: "the name should not be numeric",
                             },
                         })}
+                        onBlur={() => trigger("prenom")}
                         className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                     />
                     {errors.prenom && (
@@ -94,16 +97,12 @@ const Register = () => {
                         type="text"
                         {...register("email", {
                             required: "this field is required",
-                            minLength: {
-                                value: 10,
-                                message:
-                                    "Le prénom doit etre au moins 10 characteres",
-                            },
                             pattern: {
                                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                                message: "la syntax email est fausse",
+                                message: "la syntax email est incorrecte",
                             },
                         })}
+                        onBlur={() => trigger("email")}
                         className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:r ing focus:border-blue-300"
                     />
                     {errors.email && (
@@ -129,6 +128,7 @@ const Register = () => {
                                     "Password must be at least 8 characters",
                             },
                         })}
+                        onBlur={() => trigger("password")}
                         className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                     />
                     {errors.password && (
@@ -151,6 +151,7 @@ const Register = () => {
                                 value === watch("password") ||
                                 "Passwords do not match",
                         })}
+                        onBlur={() => trigger("confirmPassword")}
                         className="w-full mt-1 p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                     />
                     {errors.confirmPassword && (
