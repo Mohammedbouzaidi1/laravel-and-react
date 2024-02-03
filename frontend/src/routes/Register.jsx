@@ -11,7 +11,10 @@ const Register = () => {
         trigger,
     } = useForm();
 
-    const Submit = () => {};
+    const Submit = (data) => {
+        console.log(data);
+        alert(JSON.stringify(data));
+    };
 
     return (
         <div
@@ -28,7 +31,7 @@ const Register = () => {
             >
                 <div className="mb-4">
                     <label
-                        for="nom"
+                        htmlFor="nom"
                         className="text-sm font-semibold text-gray-600"
                     >
                         Nom :
@@ -58,7 +61,7 @@ const Register = () => {
                 </div>
                 <div className="mb-4">
                     <label
-                        for="prenom"
+                        htmlFor="prenom"
                         className="text-sm font-semibold text-gray-600"
                     >
                         Prenom :
@@ -88,8 +91,8 @@ const Register = () => {
                 </div>
                 <div className="mb-4">
                     <label
-                        for="email"
-                        class="text-sm font-semibold text-gray-600"
+                        htmlFor="email"
+                        className="text-sm font-semibold text-gray-600"
                     >
                         Email :
                     </label>
@@ -113,7 +116,7 @@ const Register = () => {
                 </div>
                 <div className="mb-4">
                     <label
-                        for="password"
+                        htmlFor="password"
                         className="text-sm font-semibold text-gray-600"
                     >
                         Password :
@@ -139,7 +142,7 @@ const Register = () => {
                 </div>
                 <div className="mb-4">
                     <label
-                        for="confirmPassword"
+                        htmlFor="confirmPassword"
                         className="text-sm font-semibold text-gray-600"
                     >
                         Confirm Password :
