@@ -147,6 +147,7 @@ const Register = () => {
                     <input
                         type="password"
                         {...register("confirmPassword", {
+                            required: "The confirmation is required",
                             validate: (value) =>
                                 value === watch("password") ||
                                 "Passwords do not match",
